@@ -1,17 +1,22 @@
-import React from 'react';
+import axios from 'axios';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { usePosition } from 'use-position';
 
+import { weatherApi } from '@/api/api';
 import { CurrentDay } from '@/components/CurrentDay';
 import { UpcomingDays } from '@/components/UpcomingDays';
 import { setGeolocation } from '@/store/geolocationReducer/geolocationActions';
 
 import { Container } from './components';
+import { getCurrentWeatherThunk } from '@/store/currentDayReducer/currentDayMiddleware';
 
 export function App() {
+  const [state, setState] = useState();
   const dispatch = useDispatch();
   const { latitude, longitude } = usePosition();
-
+  console.log(state);
   if (latitude) dispatch(setGeolocation(latitude, longitude));
 
   // const params = 'windSpeed';
@@ -32,6 +37,12 @@ export function App() {
   //       });
   //   }
   // }, [latitude]);
+
+  useEffect(() => {
+    if (latitude) {
+      dispatch(getCurrentWeatherThunk(latitude, longitude));
+    }
+  }, [latitude]);
   return (
     <Container>
       <CurrentDay />
