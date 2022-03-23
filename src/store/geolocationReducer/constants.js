@@ -1,0 +1,1 @@
+export const GEO_REDUCER_SET_GEO = 'GEO_REDUCER/SET_GEO';
