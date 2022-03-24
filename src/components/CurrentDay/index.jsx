@@ -5,14 +5,22 @@ import { useSelector } from 'react-redux';
 import { CurrentDayTitle } from './components';
 
 export const CurrentDay = () => {
-  const [time, setTime] = useState(moment().format('MMMM Do YYYY, h:mm a'));
+  const [currentDay] = useState(moment().format('dddd'));
+  const [currentMonth] = useState(moment().format('MMMM Do YYYY'));
+  const [currentTime] = useState(moment().format('h:mm a'));
+
   const { cityName } = useSelector((state) => state.currentDay);
   const { country } = useSelector((state) => state.currentDay);
   return (
     <div>
       <CurrentDayTitle>
         <div>
-          <div>{time}</div>
+          <div>{currentTime}</div>
+          <div>
+            {currentDay}
+            ,
+            {currentMonth}
+          </div>
         </div>
         <div>
           <div>{cityName}</div>

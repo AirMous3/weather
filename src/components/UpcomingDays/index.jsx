@@ -1,47 +1,28 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { UpcomingDay } from '@/components/UpcomingDay';
 
 import { UpcomingDaysContainer, UpcomingDaysList } from './components';
 
-export const UpcomingDays = () => (
-  <UpcomingDaysContainer>
-    <div style={{ display: 'flex' }}>
-      <div>img</div>
-      <div>
-        <div>today</div>
-        <div>12*</div>
+export const UpcomingDays = () => {
+  const upcomingDays = useSelector((st) => st.upcomingDays);
+  const todayTemperature = useSelector((st) => st.currentDay.temp);
+  return (
+    <UpcomingDaysContainer>
+      <div style={{ display: 'flex' }}>
+        <img src="img" alt="weatherIcon" />
+        <div>
+          <div>Today</div>
+          <div>{todayTemperature}</div>
+        </div>
       </div>
-    </div>
-    <UpcomingDaysList>
-      <li>
-        <div>tue</div>
-        <div>img</div>
-        <div>12*</div>
-      </li>
-      <li>
-        <div>wed</div>
-        <div>img</div>
-        <div>12*</div>
-      </li>
-      <li>
-        <div>thu</div>
-        <div>img</div>
-        <div>12*</div>
-      </li>
-      <li>
-        <div>fri</div>
-        <div>img</div>
-        <div>12*</div>
-      </li>
-      <li>
-        <div>sat</div>
-        <div>img</div>
-        <div>12*</div>
-      </li>
-      <li>
-        <div>sun</div>
-        <div>img</div>
-        <div>12*</div>
-      </li>
-    </UpcomingDaysList>
-  </UpcomingDaysContainer>
-);
+      <UpcomingDaysList>
+        {upcomingDays.map(({ airTemperature: { noaa }, time }, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <UpcomingDay key={index} temp={noaa} time={time} />
+        ))}
+      </UpcomingDaysList>
+    </UpcomingDaysContainer>
+  );
+};
