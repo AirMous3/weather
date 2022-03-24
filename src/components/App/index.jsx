@@ -16,7 +16,6 @@ export function App() {
   const { latitude, longitude } = usePosition();
 
   if (latitude) dispatch(setGeolocation(latitude, longitude));
-
   useEffect(() => {
     if (latitude) {
       dispatch(getCurrentWeatherThunk(latitude, longitude));
@@ -34,11 +33,10 @@ export function App() {
   useEffect(() => {
     dispatch(setUpcomingDays(JSON.parse(localStorage.getItem('weatherData'))));
   }, []);
-
   return (
     <Container>
       <CurrentDay />
-      <UpcomingDays />
+      {/* <UpcomingDays /> */}
     </Container>
   );
 }
