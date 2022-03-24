@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { UpcomingDay } from '@/components/UpcomingDay';
+import { getWeatherIcon } from '@/helpers/getWeatherIcon';
 
 import {
   CurrentDayContainer,
@@ -13,12 +14,13 @@ import {
 
 export const UpcomingDays = () => {
   const upcomingDays = useSelector((st) => st.upcomingDays);
+  console.log(upcomingDays);
   const todayTemperature = useSelector((st) => st.currentDay.temp);
   const currentDayImage = useSelector((st) => st.currentDay.icon);
   return (
     <UpcomingDaysContainer>
       <CurrentDayContainer>
-        <img src={`http://openweathermap.org/img/wn/${currentDayImage}@2x.png`} alt="weatherIcon" />
+        <img src={getWeatherIcon(currentDayImage)} alt="weatherIcon" />
         <div>
           <TodayTitle>
             <span>TODAY</span>

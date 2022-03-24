@@ -3,6 +3,7 @@ import React from 'react';
 import { upcomingDaysConfig } from './config';
 import { getCurrentDay } from '@/helpers/getCurrentDay';
 import { StyledLi, UpcomingDaysTemp } from './components';
+import { getWeatherIcon } from '@/helpers/getWeatherIcon';
 
 export const UpcomingDay = ({ time, img, temp }) => {
   const day = upcomingDaysConfig[getCurrentDay(time)];
@@ -11,7 +12,7 @@ export const UpcomingDay = ({ time, img, temp }) => {
 
       <span>{day}</span>
 
-      <img src={`http://openweathermap.org/img/wn/${img[0].icon}@2x.png`} alt="weatherIcon" />
+      <img src={getWeatherIcon(img[0].icon)} alt="weatherIcon" />
       <UpcomingDaysTemp>
         {temp}
         °
