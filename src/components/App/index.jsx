@@ -9,13 +9,14 @@ import { setGeolocation } from '@/store/geolocationReducer/geolocationActions';
 import { setUpcomingDays } from '@/store/upcomingDaysReducer/upcomingDaysActions';
 import { getUpcomingDays } from '@/store/upcomingDaysReducer/upcomingDaysMiddleware';
 
-import { Container } from './components';
+import { Container, Main } from './components';
 
 export function App() {
   const dispatch = useDispatch();
   const { latitude, longitude } = usePosition();
 
   if (latitude) dispatch(setGeolocation(latitude, longitude));
+
   useEffect(() => {
     if (latitude) {
       dispatch(getCurrentWeatherThunk(latitude, longitude));
@@ -33,9 +34,11 @@ export function App() {
     dispatch(setUpcomingDays(JSON.parse(localStorage.getItem('weatherData'))));
   }, []);
   return (
-    <Container>
-      <CurrentDay />
-      <UpcomingDays />
-    </Container>
+    <Main>
+      <Container>
+        <CurrentDay />
+        <UpcomingDays />
+      </Container>
+    </Main>
   );
 }

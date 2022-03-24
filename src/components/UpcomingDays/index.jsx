@@ -14,12 +14,15 @@ import {
 export const UpcomingDays = () => {
   const upcomingDays = useSelector((st) => st.upcomingDays);
   const todayTemperature = useSelector((st) => st.currentDay.temp);
+  const currentDayImage = useSelector((st) => st.currentDay.icon);
   return (
     <UpcomingDaysContainer>
       <CurrentDayContainer>
-        <img src="img" alt="weatherIcon" />
+        <img src={`http://openweathermap.org/img/wn/${currentDayImage}@2x.png`} alt="weatherIcon" />
         <div>
-          <TodayTitle>TODAY</TodayTitle>
+          <TodayTitle>
+            <span>TODAY</span>
+          </TodayTitle>
           <TodayTemp>
             {todayTemperature}
             °
