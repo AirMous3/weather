@@ -7,12 +7,29 @@ export const UpcomingDaysContainer = styled.div`
 
 export const UpcomingDaysList = styled.ul`
   display: flex;
-  margin-left: 20px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin: 0;
   padding: 0;
+
   li {
     list-style-type: none;
-    margin-left: 20px;
+    margin-left: 50px;
   }
+`;
+export const CurrentDayContainer = styled.div`
+  display: flex;
+
+  img {
+    margin-right: 20px;
+  }
+`;
+
+export const TodayTitle = styled.div`
+  margin-bottom: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 20px;
+  background-color: rgba(17, 59, 105, 0.71);
+  `;
+export const TodayTemp = styled.div`
+  font-size: 40px;
 `;

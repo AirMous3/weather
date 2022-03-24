@@ -12,21 +12,19 @@ export const CurrentDay = () => {
   const { cityName } = useSelector((state) => state.currentDay);
   const { country } = useSelector((state) => state.currentDay);
   return (
-    <div>
-      <CurrentDayTitle>
+    <CurrentDayTitle>
+      <div>
+        <div>{currentTime}</div>
         <div>
-          <div>{currentTime}</div>
-          <div>
-            {currentDay}
-            ,
-            {currentMonth}
-          </div>
+          {currentDay}
+          ,
+          {currentMonth}
         </div>
-        <div>
-          <div>{cityName}</div>
-          <div>{country}</div>
-        </div>
-      </CurrentDayTitle>
-    </div>
+      </div>
+      <div>
+        <div>{cityName}</div>
+        <div>{country}</div>
+      </div>
+    </CurrentDayTitle>
   );
 };

@@ -1,15 +1,21 @@
 import React from 'react';
 
-import { upcomingDaysConfig } from '@/components/UpcomingDay/config';
+import { upcomingDaysConfig } from './config';
 import { getCurrentDay } from '@/helpers/getCurrentDay';
+import { StyledLi, UpcomingDaysTemp } from './components';
 
 export const UpcomingDay = ({ time, img, temp }) => {
   const day = upcomingDaysConfig[getCurrentDay(time)];
   return (
-    <li>
-      <div>{day}</div>
+    <StyledLi>
+
+      <span>{day}</span>
+
       <img src={img} alt="weatherIcon" />
-      <div>{temp}</div>
-    </li>
+      <UpcomingDaysTemp>
+        {temp}
+        °
+      </UpcomingDaysTemp>
+    </StyledLi>
   );
 };

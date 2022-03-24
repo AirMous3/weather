@@ -3,20 +3,29 @@ import { useSelector } from 'react-redux';
 
 import { UpcomingDay } from '@/components/UpcomingDay';
 
-import { UpcomingDaysContainer, UpcomingDaysList } from './components';
+import {
+  CurrentDayContainer,
+  TodayTemp,
+  TodayTitle,
+  UpcomingDaysContainer,
+  UpcomingDaysList,
+} from './components';
 
 export const UpcomingDays = () => {
   const upcomingDays = useSelector((st) => st.upcomingDays);
   const todayTemperature = useSelector((st) => st.currentDay.temp);
   return (
     <UpcomingDaysContainer>
-      <div style={{ display: 'flex' }}>
+      <CurrentDayContainer>
         <img src="img" alt="weatherIcon" />
         <div>
-          <div>Today</div>
-          <div>{todayTemperature}</div>
+          <TodayTitle>TODAY</TodayTitle>
+          <TodayTemp>
+            {todayTemperature}
+            °
+          </TodayTemp>
         </div>
-      </div>
+      </CurrentDayContainer>
       <UpcomingDaysList>
         {upcomingDays.map(({ airTemperature: { noaa }, time }, index) => (
           // eslint-disable-next-line react/no-array-index-key
