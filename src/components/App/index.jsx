@@ -4,10 +4,10 @@ import { usePosition } from 'use-position';
 
 import { CurrentDay } from '@/components/CurrentDay';
 import { UpcomingDays } from '@/components/UpcomingDays';
-import { getCurrentWeatherThunk } from '@/store/currentDayReducer/currentDayMiddleware';
-import { setGeolocation } from '@/store/geolocationReducer/geolocationActions';
-import { setUpcomingDays } from '@/store/upcomingDaysReducer/upcomingDaysActions';
-import { getUpcomingDays } from '@/store/upcomingDaysReducer/upcomingDaysMiddleware';
+import { getCurrentWeatherThunk } from '@/store/currentDayReducer/middlewares';
+import { setGeolocation } from '@/store/geolocationReducer/actions';
+import { setUpcomingDays } from '@/store/upcomingDaysReducer/actions';
+import { getUpcomingDays } from '@/store/upcomingDaysReducer/middlewares';
 
 import { Container, Main } from './components';
 

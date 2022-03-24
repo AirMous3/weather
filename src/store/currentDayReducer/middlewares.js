@@ -1,5 +1,5 @@
 import { openWeatherApi } from '@/api/openWeatherApi';
-import { setCurrentDayWeather } from '@/store/currentDayReducer/currentDayActions';
+import { setCurrentDayWeather } from '@/store/currentDayReducer/actions';
 
 export const getCurrentWeatherThunk = (lat, lon) => async (dispatch) => {
   const result = await openWeatherApi.getCurrentDayWeather(lat, lon);
