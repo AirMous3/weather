@@ -2,7 +2,13 @@ import moment from 'moment';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { CurrentDayTitle } from './components';
+import {
+  CurrentDayCity,
+  CurrentDayCountry,
+  CurrentDayTime,
+  CurrentDayTitle,
+  CurrentDayWrapper,
+} from './components';
 
 export const CurrentDay = () => {
   const [currentDay] = useState(moment().format('dddd'));
@@ -14,16 +20,16 @@ export const CurrentDay = () => {
   return (
     <CurrentDayTitle>
       <div>
-        <div>{currentTime}</div>
-        <div>
+        <CurrentDayTime>{currentTime}</CurrentDayTime>
+        <CurrentDayWrapper>
           {currentDay}
           ,
           {currentMonth}
-        </div>
+        </CurrentDayWrapper>
       </div>
       <div>
-        <div>{cityName}</div>
-        <div>{country}</div>
+        <CurrentDayCity>{cityName}</CurrentDayCity>
+        <CurrentDayCountry>{country}</CurrentDayCountry>
       </div>
     </CurrentDayTitle>
   );
