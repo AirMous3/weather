@@ -1,1 +1,1 @@
-export const getCurrentDay = (time) => new Date(time).getDay();
+export const getCurrentDay = (time) => new Date(time * 1000).getDay();

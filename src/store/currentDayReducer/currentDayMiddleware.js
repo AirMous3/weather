@@ -3,7 +3,6 @@ import { setCurrentDayWeather } from '@/store/currentDayReducer/currentDayAction
 
 export const getCurrentWeatherThunk = (lat, lon) => async (dispatch) => {
   const result = await openWeatherApi.getCurrentDayWeather(lat, lon);
-  console.log(result);
   const cityName = result.name;
   const temp = (result.main.temp - 273.15).toFixed(1);
   const { country } = result.sys;

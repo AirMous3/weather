@@ -29,14 +29,13 @@ export function App() {
       }
     }
   }, [latitude]);
-
   useEffect(() => {
     dispatch(setUpcomingDays(JSON.parse(localStorage.getItem('weatherData'))));
   }, []);
   return (
     <Container>
       <CurrentDay />
-      {/* <UpcomingDays /> */}
+      <UpcomingDays />
     </Container>
   );
 }

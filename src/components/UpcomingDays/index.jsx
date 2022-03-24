@@ -27,9 +27,8 @@ export const UpcomingDays = () => {
         </div>
       </CurrentDayContainer>
       <UpcomingDaysList>
-        {upcomingDays.map(({ airTemperature: { noaa }, time }, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <UpcomingDay key={index} temp={noaa} time={time} />
+        {upcomingDays.map(({ dt, temp: { max }, weather }, index) => (
+          <UpcomingDay key={index} temp={max} time={dt} img={weather} />
         ))}
       </UpcomingDaysList>
     </UpcomingDaysContainer>

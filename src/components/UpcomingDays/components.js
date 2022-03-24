@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 export const UpcomingDaysContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin-top: 100px;
 `;
 
 export const UpcomingDaysList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
 

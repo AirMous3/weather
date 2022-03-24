@@ -11,7 +11,7 @@ export const UpcomingDay = ({ time, img, temp }) => {
 
       <span>{day}</span>
 
-      <img src={img} alt="weatherIcon" />
+      <img src={`http://openweathermap.org/img/wn/${img[0].icon}@2x.png`} alt="weatherIcon" />
       <UpcomingDaysTemp>
         {temp}
         °
