@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { usePosition } from 'use-position';
 
 import { CurrentDay } from '@/components/CurrentDay';
+import { Preloader } from '@/components/Preloader';
 import { UpcomingDays } from '@/components/UpcomingDays';
 import { CURRENT_DAY_WEATHER, WEATHER_DATA } from '@/constants/localstorage';
 import { setAppInitialize } from '@/store/appReducer/actions';
@@ -26,21 +27,21 @@ export function App() {
       }
     }
   }, [latitude]);
+
   useEffect(() => {
     dispatch(setUpcomingDays(JSON.parse(localStorage.getItem(WEATHER_DATA))));
     dispatch(setCurrentDayWeather(JSON.parse(localStorage.getItem(CURRENT_DAY_WEATHER))));
     dispatch(setAppInitialize(true));
   }, []);
+
+  if (!isInitialized) return <Preloader />;
+
   return (
     <Main>
-      {isInitialized ? (
-        <Container>
-          <CurrentDay />
-          <UpcomingDays />
-        </Container>
-      ) : (
-        <div>preloader</div>
-      )}
+      <Container>
+        <CurrentDay />
+        <UpcomingDays />
+      </Container>
     </Main>
   );
 }
