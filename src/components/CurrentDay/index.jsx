@@ -58,8 +58,8 @@ export const CurrentDay = () => {
             humidity,
             pressure,
             windSpeed,
-          ).map(({ label, value }) => (
-            <li>
+          ).map(({ label, value }, index) => (
+            <li key={index}>
               {label}
               :
               {value}
