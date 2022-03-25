@@ -14,7 +14,6 @@ import {
 
 export const UpcomingDays = () => {
   const upcomingDays = useSelector((st) => st.upcomingDays);
-  console.log(upcomingDays);
   const todayTemperature = useSelector((st) => st.currentDay.temp);
   const currentDayImage = useSelector((st) => st.currentDay.icon);
   return (

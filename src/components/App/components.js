@@ -8,11 +8,8 @@ export const Container = styled.div`
   padding-left: 40px;
   padding-right: 40px;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
 `;
 export const Main = styled.main`
-  height: 100vh;
+  min-height: 100vh;
   background-image: url(${defaultImage});
 `;

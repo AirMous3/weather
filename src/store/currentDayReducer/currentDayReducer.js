@@ -1,9 +1,10 @@
-import { CURRENT_DAY_SET_CURRENT_WEATHER } from './constatnts';
+import { CURRENT_DAY_SET_CURRENT_WEATHER } from './constants';
 
 const initState = {
-  cityName: '',
+  cityName: null,
   temp: null,
-  country: '',
+  country: null,
+  icon: null,
 
 };
 export const currentDayReducer = (state = initState, action = {}) => {
