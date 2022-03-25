@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const CurrentDayTitle = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 50px;
 `;
 
 export const CurrentDayTime = styled.div`
@@ -20,3 +21,7 @@ export const CurrentDayCountry = styled.div`
   font-size: 20px;
   float: right;
 `;
+
+export const CurrentDayDescription = styled.div`
+  
+  `;
