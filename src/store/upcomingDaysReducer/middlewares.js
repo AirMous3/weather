@@ -10,6 +10,12 @@ export const setWeatherDataTH = (lat, lon) => async (dispatch) => {
     icon: result.current.weather[0].icon,
     country: result.timezone.split('/')[0],
     cityName: result.timezone.split('/')[1],
+    sunrise: result.current.sunrise,
+    sunset: result.current.sunset,
+    pressure: result.current.pressure,
+    humidity: result.current.humidity,
+    windSpeed: result.current.wind_speed,
+    feelsLike: result.current.feels_like,
   };
   dispatch(setCurrentDayWeather(currentDayWeather));
   localStorage.setItem(CURRENT_DAY_WEATHER, JSON.stringify(currentDayWeather));

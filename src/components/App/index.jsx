@@ -27,13 +27,11 @@ export function App() {
       }
     }
   }, [latitude]);
-
   useEffect(() => {
     dispatch(setUpcomingDays(JSON.parse(localStorage.getItem(WEATHER_DATA))));
     dispatch(setCurrentDayWeather(JSON.parse(localStorage.getItem(CURRENT_DAY_WEATHER))));
     dispatch(setAppInitialize(true));
   }, []);
-
   if (!isInitialized) return <Preloader />;
 
   return (

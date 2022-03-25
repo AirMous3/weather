@@ -1,7 +1,7 @@
-import moment from 'moment';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import { currentDayDescriptionConfig } from '@/components/CurrentDay/config';
 import { getFullDate } from '@/helpers/getFullDate';
 
 import {
@@ -19,8 +19,18 @@ export const CurrentDay = () => {
   const [currentMonth] = useState(month);
   const [currentTime] = useState(time);
 
-  const { cityName } = useSelector((state) => state.currentDay);
-  const { country } = useSelector((state) => state.currentDay);
+  const {
+    cityName,
+    country,
+    feelsLike,
+    humidity,
+    pressure,
+    sunrise,
+    sunset,
+    temp,
+    windSpeed,
+  } = useSelector((state) => state.currentDay);
+
   return (
     <div>
       <CurrentDayTitle>
@@ -37,7 +47,26 @@ export const CurrentDay = () => {
           <CurrentDayCountry>{country}</CurrentDayCountry>
         </div>
       </CurrentDayTitle>
-      <CurrentDayDescription>123</CurrentDayDescription>
+      <CurrentDayDescription>
+        <div>Details</div>
+        <ul>
+          {currentDayDescriptionConfig(
+            sunrise,
+            sunset,
+            temp,
+            feelsLike,
+            humidity,
+            pressure,
+            windSpeed,
+          ).map(({ label, value }) => (
+            <li>
+              {label}
+              :
+              {value}
+            </li>
+          ))}
+        </ul>
+      </CurrentDayDescription>
     </div>
   );
 };

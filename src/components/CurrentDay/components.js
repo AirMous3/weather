@@ -23,5 +23,9 @@ export const CurrentDayCountry = styled.div`
 `;
 
 export const CurrentDayDescription = styled.div`
-  
+  font-size: 20px;
+  li {
+    list-style-type: none;
+    margin-bottom: 10px;
+  }
   `;
