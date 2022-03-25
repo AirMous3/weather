@@ -1,4 +1,4 @@
-export const currentDayDescriptionConfig = (
+export const dayDescriptionConfig = (
   sunrise,
   sunset,
   temp,

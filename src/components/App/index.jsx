@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
 import { usePosition } from 'use-position';
 
 import { CurrentDay } from '@/components/CurrentDay';
 import { Preloader } from '@/components/Preloader';
+import { UpcomingDayInfo } from '@/components/UpcomingDayInfo';
 import { UpcomingDays } from '@/components/UpcomingDays';
 import { CURRENT_DAY_WEATHER, WEATHER_DATA } from '@/constants/localstorage';
 import { setAppInitialize } from '@/store/appReducer/actions';
@@ -37,8 +39,18 @@ export function App() {
   return (
     <Main>
       <Container>
-        <CurrentDay />
-        <UpcomingDays />
+        <Routes>
+          <Route
+            path="/"
+            element={(
+              <>
+                <CurrentDay />
+                <UpcomingDays />
+              </>
+            )}
+          />
+          <Route path="upcomingDayInfo/*" element={<UpcomingDayInfo />} />
+        </Routes>
       </Container>
     </Main>
   );

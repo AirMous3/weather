@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { currentDayDescriptionConfig } from '@/components/CurrentDay/config';
+import { dayDescriptionConfig } from '@/helpers/dayDescriptionConfig';
 import { getFullDate } from '@/helpers/getFullDate';
 
 import {
@@ -50,7 +50,7 @@ export const CurrentDay = () => {
       <CurrentDayDescription>
         <div>Details</div>
         <ul>
-          {currentDayDescriptionConfig(
+          {dayDescriptionConfig(
             sunrise,
             sunset,
             temp,

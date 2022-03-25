@@ -31,8 +31,8 @@ export const UpcomingDays = () => {
         </div>
       </CurrentDayContainer>
       <UpcomingDaysList>
-        {upcomingDays.map(({ dt, temp: { max }, weather }, index) => (
-          <UpcomingDay key={index} temp={max} time={dt} img={weather} />
+        {upcomingDays.map(({ dt, temp: { max }, weather }) => (
+          <UpcomingDay key={dt} temp={max} dt={dt} img={weather} />
         ))}
       </UpcomingDaysList>
     </UpcomingDaysContainer>
