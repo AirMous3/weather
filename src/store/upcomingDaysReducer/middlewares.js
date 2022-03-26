@@ -6,7 +6,7 @@ import { setUpcomingDays } from '@/store/upcomingDaysReducer/actions';
 export const setWeatherDataTH = (lat, lon) => async (dispatch) => {
   const result = await openWeatherApi.getWeatherData(lat, lon);
   const currentDayWeather = {
-    temp: result.current.temp,
+    temp: Math.round(result.current.temp),
     icon: result.current.weather[0].icon,
     country: result.timezone.split('/')[0],
     cityName: result.timezone.split('/')[1],

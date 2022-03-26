@@ -15,7 +15,7 @@ export const UpcomingDay = ({ dt, img, temp }) => {
 
         <img src={getWeatherIcon(img[0].icon)} alt="weatherIcon" />
         <UpcomingDaysTemp>
-          {temp}
+          {Math.round(temp)}
           °
         </UpcomingDaysTemp>
       </StyledLi>

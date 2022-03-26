@@ -35,7 +35,6 @@ export function App() {
     dispatch(setAppInitialize(true));
   }, []);
   if (!isInitialized) return <Preloader />;
-
   return (
     <Main>
       <Container>

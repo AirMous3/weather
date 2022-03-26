@@ -6,17 +6,6 @@ export const UpcomingDaysContainer = styled.div`
   margin-top: 100px;
 `;
 
-export const UpcomingDaysList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
-
-  li {
-    list-style-type: none;
-    margin-left: 50px;
-  }
-`;
 export const CurrentDayContainer = styled.div`
   display: flex;
   align-items: center;
