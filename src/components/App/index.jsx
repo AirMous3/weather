@@ -8,9 +8,9 @@ import { Preloader } from '@/components/Preloader';
 import { UpcomingDayInfo } from '@/components/UpcomingDayInfo';
 import { UpcomingDays } from '@/components/UpcomingDays';
 import { CURRENT_DAY_WEATHER, WEATHER_DATA } from '@/constants/localstorage';
-import { setAppInitialize } from '@/store/appReducer/actions';
+import { getFromLocalStorage } from '@/helpers/getFromLocalStorage';
+import { setAppInitialize, setMainImage } from '@/store/appReducer/actions';
 import { setCurrentDayWeather } from '@/store/currentDayReducer/actions';
-import { setGeolocation } from '@/store/geolocationReducer/actions';
 import { setUpcomingDays } from '@/store/upcomingDaysReducer/actions';
 import { setWeatherDataTH } from '@/store/upcomingDaysReducer/middlewares';
 
@@ -20,7 +20,7 @@ export function App() {
   const dispatch = useDispatch();
   const { latitude, longitude } = usePosition();
   const isInitialized = useSelector((st) => st.app.isInitialized);
-  if (latitude) dispatch(setGeolocation(latitude, longitude));
+  const mainImage = useSelector((st) => st.app.mainImage);
 
   useEffect(() => {
     if (!JSON.parse(localStorage.getItem(WEATHER_DATA))) {
@@ -29,14 +29,18 @@ export function App() {
       }
     }
   }, [latitude]);
+
   useEffect(() => {
-    dispatch(setUpcomingDays(JSON.parse(localStorage.getItem(WEATHER_DATA))));
-    dispatch(setCurrentDayWeather(JSON.parse(localStorage.getItem(CURRENT_DAY_WEATHER))));
+    dispatch(setUpcomingDays(getFromLocalStorage(WEATHER_DATA)));
+    dispatch(setCurrentDayWeather(getFromLocalStorage(CURRENT_DAY_WEATHER)));
+    dispatch(setMainImage(getFromLocalStorage(CURRENT_DAY_WEATHER).mainImage));
     dispatch(setAppInitialize(true));
   }, []);
+
   if (!isInitialized) return <Preloader />;
+
   return (
-    <Main>
+    <Main mode={mainImage}>
       <Container>
         <Routes>
           <Route

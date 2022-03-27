@@ -55,8 +55,8 @@ export const CurrentDay = () => {
             sunset,
             temp,
             feelsLike,
-            humidity,
             pressure,
+            humidity,
             windSpeed,
           ).map(({ label, value }, index) => (
             <li key={index}>

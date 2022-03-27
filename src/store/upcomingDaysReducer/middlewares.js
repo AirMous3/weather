@@ -1,10 +1,12 @@
 import { openWeatherApi } from '@/api/openWeatherApi';
 import { CURRENT_DAY_WEATHER, WEATHER_DATA } from '@/constants/localstorage';
+import { setMainImage } from '@/store/appReducer/actions';
 import { setCurrentDayWeather } from '@/store/currentDayReducer/actions';
 import { setUpcomingDays } from '@/store/upcomingDaysReducer/actions';
 
 export const setWeatherDataTH = (lat, lon) => async (dispatch) => {
   const result = await openWeatherApi.getWeatherData(lat, lon);
+  const mainImage = result.current.weather[0].main;
   const currentDayWeather = {
     temp: Math.round(result.current.temp),
     icon: result.current.weather[0].icon,
@@ -16,8 +18,10 @@ export const setWeatherDataTH = (lat, lon) => async (dispatch) => {
     humidity: result.current.humidity,
     windSpeed: result.current.wind_speed,
     feelsLike: result.current.feels_like,
+    mainImage,
   };
   dispatch(setCurrentDayWeather(currentDayWeather));
+  dispatch(setMainImage(mainImage));
   localStorage.setItem(CURRENT_DAY_WEATHER, JSON.stringify(currentDayWeather));
 
   const upcomingDays = result.daily.slice(1, 7);

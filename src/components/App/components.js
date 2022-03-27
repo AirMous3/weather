@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import defaultImage from '@/assets/defaultImage.jpg';
 
 export const Container = styled.div`
   max-width: 1200px;
@@ -11,5 +10,5 @@ export const Container = styled.div`
 `;
 export const Main = styled.main`
   min-height: 100vh;
-  background-image: url(${defaultImage});
+  background-image: url(${({ theme, mode }) => theme[mode] || theme.defaultImage});
 `;

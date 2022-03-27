@@ -1,15 +1,18 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { upcomingDaysConfig } from '@/components/UpcomingDay/config';
 import { TitleWrapper } from '@/components/UpcomingDayInfo/components';
 import { dayDescriptionConfig } from '@/helpers/dayDescriptionConfig';
 import { getCurrentDay } from '@/helpers/getCurrentDay';
+import { setMainImage } from '@/store/appReducer/actions';
 
 export const UpcomingDayInfo = () => {
+  const dispatch = useDispatch();
   const dayId = useParams();
   const upcomingDays = useSelector((state) => state.upcomingDays);
+  const mainDayPicture = useSelector((state) => state.currentDay.mainImage);
 
   const currentDay = upcomingDays.filter((day) => day.dt === Number(dayId['*']));
   const title = upcomingDaysConfig[getCurrentDay(currentDay[0].dt)];
@@ -17,9 +20,14 @@ export const UpcomingDayInfo = () => {
     humidity, pressure, sunrise, sunset,
   } = currentDay[0];
   const temp = currentDay[0].temp.day;
-  console.log(temp);
   const feelsLike = currentDay[0].feels_like.day;
   const windSpeed = currentDay[0].wind_speed;
+  const mainImage = currentDay[0].weather[0].main;
+
+  useEffect(() => {
+    dispatch(setMainImage(mainImage));
+    return () => dispatch(setMainImage(mainDayPicture));
+  }, [mainImage]);
 
   return (
     <div>
