@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const UpcomingDaysTemp = styled.div`
-  font-size: 20px;
+  font-size: ${({ theme }) => theme.fontSize[0]};
 `;
 export const StyledLi = styled.li`
   display: flex;
@@ -10,8 +10,8 @@ export const StyledLi = styled.li`
   align-items: center;
 
   span {
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: ${({ theme }) => theme.spaces[1]};
+    padding-left: ${({ theme }) => theme.spaces[1]};
     border-radius: 20px;
     background-color: rgba(17, 59, 105, 0.71);
   }

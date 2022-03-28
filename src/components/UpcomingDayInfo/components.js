@@ -2,19 +2,24 @@ import styled from 'styled-components';
 
 export const UpcomingDayInfoContainer = styled.div`
   text-align: center;
-  font-size: 40px;
+  font-size: ${({ theme }) => theme.fontSize[1]};
 `;
 
 export const UpcomingDayInfoUlWrapper = styled.ul`
-  font-size: 20px;
+  font-size: ${({ theme }) => theme.fontSize[0]};
   background: rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: ${({ theme }) => theme.spaces[2]};
+  padding-bottom: ${({ theme }) => theme.spaces[2]};
   padding-left: 0;
 
   li {
     list-style-type: none;
-    margin-bottom: 40px;
+    margin-bottom: ${({ theme }) => theme.spaces[4]};
   }
+`;
+
+export const UpcomingDayInfoTitle = styled.div`
+  padding-top: ${({ theme }) => theme.spaces[4]};
+  padding-bottom: ${({ theme }) => theme.spaces[2]};
 `;

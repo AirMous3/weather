@@ -9,6 +9,7 @@ import { setMainImage } from '@/store/appReducer/actions';
 
 import {
   UpcomingDayInfoContainer,
+  UpcomingDayInfoTitle,
   UpcomingDayInfoUlWrapper,
 } from './components';
 
@@ -35,7 +36,7 @@ export const UpcomingDayInfo = () => {
 
   return (
     <UpcomingDayInfoContainer>
-      <div>{title}</div>
+      <UpcomingDayInfoTitle>{title}</UpcomingDayInfoTitle>
       <div>
         Details
         <UpcomingDayInfoUlWrapper>
@@ -51,7 +52,6 @@ export const UpcomingDayInfo = () => {
             <li key={index}>
               {label}
               :
-              {' '}
               {value}
             </li>
           ))}

@@ -8,6 +8,6 @@ export const UpcomingDaysWrapper = styled.ul`
 
   li {
     list-style-type: none;
-    margin-left: 50px;
+    margin-left: ${({ theme }) => theme.spaces[5]};
   }
 `;

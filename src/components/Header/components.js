@@ -2,18 +2,17 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
   display: flex;
-  margin-bottom: 20px;
-  padding-top: 40px;
+  margin-bottom: ${({ theme }) => theme.spaces[2]};
+  padding-top: ${({ theme }) => theme.spaces[4]};
 
   input {
     display: block;
     width: 350px;
     height: calc(2.25rem + 2px);
-    padding: 0.375rem 0.75rem;
+    padding: ${({ theme }) => theme.spaces[1]};
     font-family: inherit;
-    font-size: 1rem;
+    font-size: ${({ theme }) => theme.fontSize[0]};
     font-weight: 400;
-    line-height: 1.5;
     color: #212529;
     background-color: #fff;
     background-clip: padding-box;
@@ -23,7 +22,7 @@ export const HeaderContainer = styled.div`
   }
 
   button {
-    margin-left: 20px;
+    margin-left: ${({ theme }) => theme.spaces[2]};
     background-color: #fff;
     font-weight: bold;
     border: none;

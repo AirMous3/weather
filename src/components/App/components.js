@@ -11,6 +11,6 @@ export const Container = styled.div`
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: ${({ theme }) => theme.spaces[4]};
+  padding-right: ${({ theme }) => theme.spaces[4]};
 `;
