@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { usePosition } from 'use-position';
@@ -19,24 +19,30 @@ import { Container, Main } from './components';
 
 export function App() {
   const dispatch = useDispatch();
+
   const { latitude, longitude } = usePosition();
+
   const isInitialized = useSelector((st) => st.app.isInitialized);
   const mainImage = useSelector((st) => st.app.mainImage);
+
+  const [isData, setIsData] = useState(false);
 
   useEffect(() => {
     if (!getFromLocalStorage(WEATHER_DATA)) {
       if (latitude) {
-        dispatch(setWeatherDataTH(latitude, longitude));
+        dispatch(setWeatherDataTH(latitude, longitude, setIsData));
       }
     }
   }, [latitude]);
 
   useEffect(() => {
-    dispatch(setUpcomingDays(getFromLocalStorage(WEATHER_DATA)));
-    dispatch(setCurrentDayWeather(getFromLocalStorage(CURRENT_DAY_WEATHER)));
-    dispatch(setMainImage(getFromLocalStorage(CURRENT_DAY_WEATHER).mainImage));
-    dispatch(setAppInitialize(true));
-  }, [latitude]);
+    if (getFromLocalStorage(WEATHER_DATA)) {
+      dispatch(setUpcomingDays(getFromLocalStorage(WEATHER_DATA)));
+      dispatch(setCurrentDayWeather(getFromLocalStorage(CURRENT_DAY_WEATHER)));
+      dispatch(setMainImage(getFromLocalStorage(CURRENT_DAY_WEATHER).mainImage));
+      dispatch(setAppInitialize(true));
+    }
+  }, [isData]);
 
   if (!isInitialized) return <Preloader />;
 

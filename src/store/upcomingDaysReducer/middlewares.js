@@ -5,7 +5,7 @@ import { setMainImage } from '@/store/appReducer/actions';
 import { setCurrentDayWeather } from '@/store/currentDayReducer/actions';
 import { setUpcomingDays } from '@/store/upcomingDaysReducer/actions';
 
-export const setWeatherDataTH = (lat, lon) => async (dispatch) => {
+export const setWeatherDataTH = (lat, lon, setData) => async (dispatch) => {
   const result = await openWeatherApi.getWeatherData(lat, lon);
   const upcomingDays = result.daily.slice(1, 7);
   const { mainImage } = extractCurrentDayWeather(result);
@@ -19,6 +19,6 @@ export const setWeatherDataTH = (lat, lon) => async (dispatch) => {
   );
 
   localStorage.setItem(WEATHER_DATA, JSON.stringify(upcomingDays));
-
   dispatch(setUpcomingDays(upcomingDays));
+  setData(true);
 };
