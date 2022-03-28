@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setApi } from '@/store/appReducer/actions';
+import { searchByCityName } from '@/store/currentDayReducer/middlewares';
 
 import {
   Button, HeaderContainer, Input, Select,
 } from './components';
-import { searchByCityName } from '@/store/currentDayReducer/middlewares';
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -34,7 +34,9 @@ export const Header = () => {
         </Select>
       </div>
       <div>
-        <Button type="button" onClick={submitHandler}>Find</Button>
+        <Button type="button" onClick={submitHandler}>
+          Find
+        </Button>
       </div>
     </HeaderContainer>
   );

@@ -8,8 +8,8 @@ export const UpcomingDaysList = () => {
   const upcomingDays = useSelector((st) => st.upcomingDays);
   return (
     <UpcomingDaysWrapper>
-      {upcomingDays.map(({ dt, temp: { max }, weather }) => (
-        <UpcomingDay key={dt} temp={max} dt={dt} img={weather} />
+      {upcomingDays.map(({ dt, temp, weather }) => (
+        <UpcomingDay key={dt} temp={temp} dt={dt} weather={weather} />
       ))}
     </UpcomingDaysWrapper>
   );
