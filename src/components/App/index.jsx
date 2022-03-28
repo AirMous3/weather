@@ -39,6 +39,7 @@ export function App() {
   }, [latitude]);
 
   if (!isInitialized) return <Preloader />;
+
   return (
     <Main mode={mainImage}>
       <Container>
