@@ -12,6 +12,7 @@ import {
   UpcomingDayInfoTitle,
   UpcomingDayInfoUlWrapper,
 } from './components';
+import { getSunriseSunset } from '@/helpers/getSunriseSunset';
 
 export const UpcomingDayInfo = () => {
   const dispatch = useDispatch();
@@ -22,12 +23,14 @@ export const UpcomingDayInfo = () => {
   const currentDay = upcomingDays.filter((day) => day.dt === Number(dayId['*']));
   const title = upcomingDaysConfig[getCurrentDay(currentDay[0].dt)];
   const {
-    humidity, pressure, sunrise, sunset,
+    humidity, pressure,
   } = currentDay[0];
   const temp = currentDay[0].temp.day;
   const feelsLike = currentDay[0].feels_like.day;
   const windSpeed = currentDay[0].wind_speed;
   const mainImage = currentDay[0].weather[0].main;
+  const sunrise = getSunriseSunset(currentDay[0].sunrise);
+  const sunset = getSunriseSunset(currentDay[0].sunset);
 
   useEffect(() => {
     dispatch(setMainImage(mainImage));
@@ -52,6 +55,7 @@ export const UpcomingDayInfo = () => {
             <li key={index}>
               {label}
               :
+              {' '}
               {value}
             </li>
           ))}

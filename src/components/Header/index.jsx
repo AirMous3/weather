@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { HeaderContainer } from '@/components/Header/components';
+import {
+  Button, HeaderContainer, Input, Select,
+} from './components';
 
 export const Header = () => {
   const city = useSelector((st) => st.currentDay.cityName);
@@ -11,8 +13,18 @@ export const Header = () => {
 
   return (
     <HeaderContainer>
-      <input type="text" value={state} onChange={handleCityChange} />
-      <button type="button">Find</button>
+      <div>
+        <Input type="text" value={state} onChange={handleCityChange} />
+      </div>
+      <div>
+        <Select defaultValue="openWeather">
+          <option value="openWeather">OpenWeather</option>
+          <option value="stormGlass">StormGlass</option>
+        </Select>
+      </div>
+      <div>
+        <Button type="button">Find</Button>
+      </div>
     </HeaderContainer>
   );
 };
