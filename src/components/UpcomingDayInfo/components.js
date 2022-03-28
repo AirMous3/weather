@@ -11,9 +11,10 @@ export const UpcomingDayInfoUlWrapper = styled.ul`
   border-radius: 5px;
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-left: 0;
 
   li {
     list-style-type: none;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
   }
 `;

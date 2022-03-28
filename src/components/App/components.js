@@ -8,8 +8,9 @@ export const Main = styled.main`
 export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  min-height: 100%;
+  min-height: 100vh;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  padding: 20px 40px;
+  padding-left: 40px;
+  padding-right: 40px;
 `;

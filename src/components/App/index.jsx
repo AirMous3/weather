@@ -24,7 +24,7 @@ export function App() {
   const mainImage = useSelector((st) => st.app.mainImage);
 
   useEffect(() => {
-    if (!JSON.parse(localStorage.getItem(WEATHER_DATA))) {
+    if (!getFromLocalStorage(WEATHER_DATA)) {
       if (latitude) {
         dispatch(setWeatherDataTH(latitude, longitude));
       }
