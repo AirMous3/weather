@@ -6,6 +6,7 @@ export const Button = styled.button`
   font-weight: bold;
   border: 1px solid #bdbdbd;
   border-radius: 0.25rem;
+  padding: 14px;
 
   &:active {
     transform: scale(0.95);
