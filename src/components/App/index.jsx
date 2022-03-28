@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { usePosition } from 'use-position';
 
 import { CurrentDay } from '@/components/CurrentDay';
+import { Header } from '@/components/Header';
 import { Preloader } from '@/components/Preloader';
 import { UpcomingDayInfo } from '@/components/UpcomingDayInfo';
 import { UpcomingDays } from '@/components/UpcomingDays';
@@ -46,6 +47,7 @@ export function App() {
             path="/"
             element={(
               <>
+                <Header />
                 <CurrentDay />
                 <UpcomingDays />
               </>
