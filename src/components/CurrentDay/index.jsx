@@ -12,6 +12,7 @@ import {
   CurrentDayTitle,
   CurrentDayWrapper,
 } from './components';
+import { getSunriseSunset } from '@/helpers/getSunriseSunset';
 
 export const CurrentDay = () => {
   const { day, time, month } = getFullDate();
@@ -19,7 +20,7 @@ export const CurrentDay = () => {
   const [currentMonth] = useState(month);
   const [currentTime] = useState(time);
 
-  const {
+  let {
     cityName,
     country,
     feelsLike,
@@ -30,6 +31,9 @@ export const CurrentDay = () => {
     temp,
     windSpeed,
   } = useSelector((state) => state.currentDay);
+
+  sunrise = getSunriseSunset(sunrise);
+  sunset = getSunriseSunset(sunset);
 
   return (
     <div>
@@ -62,6 +66,7 @@ export const CurrentDay = () => {
             <li key={index}>
               {label}
               :
+              {' '}
               {value}
             </li>
           ))}

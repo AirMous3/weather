@@ -1,4 +1,4 @@
-import { APP_SET_APP_INITIALIZE, APP_SET_MAIN_IMAGE } from '@/store/appReducer/constants';
+import { APP_SET_APP_INITIALIZE, APP_SET_MAIN_IMAGE } from './constants';
 
 const initState = {
   isInitialized: false,

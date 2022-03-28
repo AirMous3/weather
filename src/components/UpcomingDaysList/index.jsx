@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { UpcomingDay } from '@/components/UpcomingDay';
-import { UpcomingDaysWrapper } from '@/components/UpcomingDaysList/components';
+import { UpcomingDaysWrapper } from './components';
 
 export const UpcomingDaysList = () => {
   const upcomingDays = useSelector((st) => st.upcomingDays);

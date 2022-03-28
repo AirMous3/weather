@@ -3,10 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { upcomingDaysConfig } from '@/components/UpcomingDay/config';
-import { TitleWrapper } from '@/components/UpcomingDayInfo/components';
 import { dayDescriptionConfig } from '@/helpers/dayDescriptionConfig';
 import { getCurrentDay } from '@/helpers/getCurrentDay';
 import { setMainImage } from '@/store/appReducer/actions';
+
+import {
+  UpcomingDayInfoContainer,
+  UpcomingDayInfoUlWrapper,
+} from './components';
 
 export const UpcomingDayInfo = () => {
   const dispatch = useDispatch();
@@ -30,11 +34,11 @@ export const UpcomingDayInfo = () => {
   }, [mainImage]);
 
   return (
-    <div>
-      <TitleWrapper>{title}</TitleWrapper>
+    <UpcomingDayInfoContainer>
+      <div>{title}</div>
       <div>
         Details
-        <ul>
+        <UpcomingDayInfoUlWrapper>
           {dayDescriptionConfig(
             sunrise,
             sunset,
@@ -47,11 +51,12 @@ export const UpcomingDayInfo = () => {
             <li key={index}>
               {label}
               :
+              {' '}
               {value}
             </li>
           ))}
-        </ul>
+        </UpcomingDayInfoUlWrapper>
       </div>
-    </div>
+    </UpcomingDayInfoContainer>
   );
 };

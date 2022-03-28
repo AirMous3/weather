@@ -4,6 +4,10 @@ export const UpcomingDaysContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 100px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 `;
 
 export const CurrentDayContainer = styled.div`

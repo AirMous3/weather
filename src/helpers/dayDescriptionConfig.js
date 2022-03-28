@@ -17,22 +17,22 @@ export const dayDescriptionConfig = (
   },
   {
     label: 'Temp',
-    value: temp,
+    value: `${temp}°`,
   },
   {
     label: 'Feels Like',
-    value: feelsLike,
+    value: `${feelsLike}°`,
   },
   {
     label: 'Pressure',
-    value: pressure,
+    value: `${pressure} mm,Hg`,
   },
   {
     label: 'Humidity',
-    value: humidity,
+    value: `${humidity}%`,
   },
   {
     label: 'Wind Speed',
-    value: windSpeed,
+    value: `${windSpeed} m/s`,
   },
 ];

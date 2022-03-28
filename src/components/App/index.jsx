@@ -35,10 +35,9 @@ export function App() {
     dispatch(setCurrentDayWeather(getFromLocalStorage(CURRENT_DAY_WEATHER)));
     dispatch(setMainImage(getFromLocalStorage(CURRENT_DAY_WEATHER).mainImage));
     dispatch(setAppInitialize(true));
-  }, []);
+  }, [latitude]);
 
   if (!isInitialized) return <Preloader />;
-
   return (
     <Main mode={mainImage}>
       <Container>
