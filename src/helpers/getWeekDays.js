@@ -1,4 +1,4 @@
-export const getWeekDays = (data) => {
+export const getStormGlassWeekDays = (data) => {
   const resultDays = [];
   for (let i = 1; i < data.length; i += 1) {
     if (new Date(data[i].time).getHours() === 14) {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setApi } from '@/store/appReducer/actions';
-import { searchByCityName } from '@/store/currentDayReducer/middlewares';
+import { searchByCityNameTH } from '@/store/currentDayReducer/middlewares';
 
 import {
   Button, HeaderContainer, Input, Select,
@@ -15,7 +15,7 @@ export const Header = () => {
   const [state, setState] = useState(city);
 
   const submitHandler = () => {
-    dispatch(searchByCityName(state));
+    dispatch(searchByCityNameTH(state));
   };
 
   const handleCityChange = (e) => setState(e.currentTarget.value);
