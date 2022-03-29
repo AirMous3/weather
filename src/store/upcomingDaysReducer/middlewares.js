@@ -1,8 +1,9 @@
 import { openWeatherApi } from '@/api/openWeatherApi';
+import { DONE } from '@/constants/appStatus';
 import { CURRENT_DAY_WEATHER, WEATHER_DATA } from '@/constants/localstorage';
 import { extractCurrentDayWeather } from '@/helpers/extractCurrentDayWeather';
 import { extractUpcomingDays } from '@/helpers/extractUpcomingDays';
-import { setMainImage } from '@/store/appReducer/actions';
+import { setAppStatus, setMainImage } from '@/store/appReducer/actions';
 import { setCurrentDayWeather } from '@/store/currentDayReducer/actions';
 import { setUpcomingDays } from '@/store/upcomingDaysReducer/actions';
 
@@ -21,5 +22,6 @@ export const setWeatherDataTH = (lat, lon, setData) => async (dispatch) => {
 
   localStorage.setItem(WEATHER_DATA, JSON.stringify(extractUpcomingDays(upcomingDays)));
   dispatch(setUpcomingDays(extractUpcomingDays(upcomingDays)));
+  dispatch(setAppStatus(DONE));
   setData(true);
 };

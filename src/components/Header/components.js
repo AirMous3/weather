@@ -42,7 +42,13 @@ export const HeaderContainer = styled.div`
   display: flex;
   margin-bottom: ${({ theme }) => theme.spaces[2]};
   padding-top: ${({ theme }) => theme.spaces[4]};
+  position: relative;
 
+  img {
+    position: absolute;
+    right: 0;
+    width: 50px;
+  }
   ${({ theme }) => theme.below.mobileL`
     flex-direction: column;
     gap: 10px;

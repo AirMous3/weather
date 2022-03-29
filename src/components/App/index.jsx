@@ -52,13 +52,13 @@ export function App() {
         <Routes>
           <Route
             path="/"
-            element={(
+            element={
               <>
                 <Header />
                 <CurrentDay />
                 <UpcomingDays />
               </>
-            )}
+            }
           />
           <Route path="upcomingDayInfo/*" element={<UpcomingDayInfo />} />
         </Routes>

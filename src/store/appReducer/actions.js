@@ -1,4 +1,9 @@
-import { APP_SET_API, APP_SET_APP_INITIALIZE, APP_SET_MAIN_IMAGE } from './constants';
+import {
+  APP_SET_API,
+  APP_SET_APP_INITIALIZE,
+  APP_SET_APP_STATUS,
+  APP_SET_MAIN_IMAGE,
+} from './constants';
 
 export const setAppInitialize = (initialize) => ({
   type: APP_SET_APP_INITIALIZE,
@@ -11,4 +16,8 @@ export const setMainImage = (mainImage) => ({
 export const setApi = (api) => ({
   type: APP_SET_API,
   api,
+});
+export const setAppStatus = (status) => ({
+  type: APP_SET_APP_STATUS,
+  status,
 });
