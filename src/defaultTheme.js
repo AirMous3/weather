@@ -7,7 +7,7 @@ import thunderStormImage from '@/assets/thunderstorm.jpg';
 
 const SCREEN_SIZES = {
   mobileM: 420,
-  mobileL: 640,
+  mobileL: 660,
 };
 
 const above = Object.keys(SCREEN_SIZES).reduce((acc, key) => {
