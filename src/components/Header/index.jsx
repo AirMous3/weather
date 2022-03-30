@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Preloader } from '@/components/Preloader';
@@ -17,11 +17,12 @@ export const Header = () => {
 
   const [state, setState] = useState(city);
 
-  const submitHandler = () => {
+  const submitHandler = useCallback(() => {
     dispatch(searchByCityNameTH(state));
-  };
+  }, [state]);
 
-  const handleCityChange = (e) => setState(e.currentTarget.value);
+  const handleCityChange = useCallback((e) => setState(e.currentTarget.value), []);
+
   return (
     <HeaderContainer>
       <div>

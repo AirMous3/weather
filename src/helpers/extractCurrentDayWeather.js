@@ -1,3 +1,5 @@
+import { getSunriseSunset } from '@/helpers/getSunriseSunset';
+
 export const extractCurrentDayWeather = (weather) => {
   const result = weather.current;
   const countryAndCityName = weather.timezone.split('/');
@@ -7,8 +9,8 @@ export const extractCurrentDayWeather = (weather) => {
     icon: result.weather[0].icon,
     country: countryAndCityName[0],
     cityName: countryAndCityName[1],
-    sunrise: result.sunrise,
-    sunset: result.sunset,
+    sunrise: getSunriseSunset(result.sunrise),
+    sunset: getSunriseSunset(result.sunset),
     pressure: result.pressure,
     humidity: result.humidity,
     windSpeed: result.wind_speed,
