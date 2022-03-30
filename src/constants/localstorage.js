@@ -1,2 +1,2 @@
-export const CURRENT_DAY_WEATHER = 'currentDayWeatherData';
-export const WEATHER_DATA = 'weatherData';
+export const CURRENT_DAY_WEATHER = 'CURRENT_DAY_WEATHER_DATA';
+export const WEATHER_DATA = 'WEATHER_DATA';
