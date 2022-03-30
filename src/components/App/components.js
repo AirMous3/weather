@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Main = styled.main`
   min-height: 100vh;
   background-image: url(${({ theme, mode }) => theme[mode] || theme.defaultImage});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const Container = styled.div`
