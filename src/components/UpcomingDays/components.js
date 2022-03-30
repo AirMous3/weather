@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const UpcomingDaysContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin-top: 100px;
   background: rgba(0,0,0,0.3);
   border-radius: 5px;

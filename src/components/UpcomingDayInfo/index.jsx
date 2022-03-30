@@ -13,7 +13,7 @@ import {
   UpcomingDayInfoUlWrapper,
 } from './components';
 
-export const UpcomingDayInfo = () => {
+const UpcomingDayInfo = () => {
   const dispatch = useDispatch();
   const dayId = useParams();
   const upcomingDays = useSelector((state) => state.upcomingDays);
@@ -64,3 +64,5 @@ export const UpcomingDayInfo = () => {
     </UpcomingDayInfoContainer>
   );
 };
+
+export default UpcomingDayInfo;

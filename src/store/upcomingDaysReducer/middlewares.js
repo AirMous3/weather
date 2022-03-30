@@ -21,6 +21,7 @@ export const setWeatherDataTH = (lat, lon, setData) => async (dispatch) => {
   );
 
   localStorage.setItem(WEATHER_DATA, JSON.stringify(extractUpcomingDays(upcomingDays)));
+
   dispatch(setUpcomingDays(extractUpcomingDays(upcomingDays)));
   dispatch(setAppStatus(DONE));
   setData(true);
