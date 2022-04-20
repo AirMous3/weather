@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { dayDescriptionConfig } from '@/helpers/dayDescriptionConfig';
@@ -15,9 +15,6 @@ import {
 
 export const CurrentDay = () => {
   const { day, time, month } = getFullDate();
-  const [currentDay] = useState(day);
-  const [currentMonth] = useState(month);
-  const [currentTime] = useState(time);
 
   const {
     cityName,
@@ -35,11 +32,11 @@ export const CurrentDay = () => {
     <div>
       <CurrentDayTitle>
         <div>
-          <CurrentDayTime>{currentTime}</CurrentDayTime>
+          <CurrentDayTime>{time}</CurrentDayTime>
           <CurrentDayWrapper>
-            {currentDay}
+            {day}
             ,
-            {currentMonth}
+            {month}
           </CurrentDayWrapper>
         </div>
         <div>

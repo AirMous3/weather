@@ -29,10 +29,8 @@ export function App() {
   const [isData, setIsData] = useState(false);
 
   useEffect(() => {
-    if (!getFromLocalStorage(WEATHER_DATA)) {
-      if (latitude) {
+    if (!getFromLocalStorage(WEATHER_DATA) && latitude) {
         dispatch(setWeatherDataTH(latitude, longitude, setIsData));
-      }
     }
   }, [latitude]);
 
