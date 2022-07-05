@@ -6,6 +6,7 @@ import { LOADING } from '@/constants/appStatus';
 export const searchByCityNameTH = (city) => async (dispatch) => {
   dispatch(setAppStatus(LOADING));
   const result = await openWeatherApi.getCurrentCityWeather(city);
+  const cityName = result.data.name;
   const { lat, lon } = result.data.coord;
-  dispatch(setWeatherDataTH(lat, lon));
+  dispatch(setWeatherDataTH(lat, lon, null, cityName));
 };
