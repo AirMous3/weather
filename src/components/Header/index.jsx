@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Preloader } from '@/components/Preloader';
 import { LOADING } from '@/constants/appStatus';
-import { setApi } from '@/store/appReducer/actions';
 import { searchByCityNameTH } from '@/store/currentDayReducer/middlewares';
 
 import {
-  Button, HeaderContainer, Input, Select,
+  Button, HeaderContainer, Input,
 } from './components';
 
 export const Header = () => {
@@ -28,15 +27,7 @@ export const Header = () => {
       <div>
         <Input type="text" value={state} onChange={handleCityChange} />
       </div>
-      <div>
-        <Select
-          defaultValue="openWeather"
-          onChange={(e) => dispatch(setApi(e.target.value))}
-        >
-          <option value="openWeather">OpenWeather</option>
-          <option value="stormGlass">StormGlass</option>
-        </Select>
-      </div>
+
       <div>
         <Button type="button" onClick={submitHandler}>
           Find

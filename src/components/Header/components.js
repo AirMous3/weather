@@ -13,18 +13,10 @@ export const Button = styled.button`
   }
 `;
 
-export const Select = styled.select`
-  border: 1px solid #bdbdbd;
-  outline: none;
-  border-radius: 0.25rem;
-  padding: ${({ theme }) => theme.spaces[1]};
-  font-size: ${({ theme }) => theme.fontSize[0]};
-  margin-left: ${({ theme }) => theme.spaces[1]};
-`;
 
 export const Input = styled.input`
   display: block;
-  width: 350px;
+  max-width: 350px;
   padding: ${({ theme }) => theme.spaces[1]};
   font-family: inherit;
   font-size: ${({ theme }) => theme.fontSize[0]};
@@ -53,18 +45,9 @@ export const HeaderContainer = styled.div`
     flex-direction: column;
     gap: 10px;
     
-    ${Select} {
-    margin: 0;
-    }
-      
     ${Button} {
     margin: 0;
     padding: 10px;
     } 
-  `}
-  ${({ theme }) => theme.below.mobileM`
-    ${Input}{
-     width: 200px
-    }   
   `}
 `;
